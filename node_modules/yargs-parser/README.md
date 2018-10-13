@@ -212,6 +212,14 @@ node example.js --no-foo
 { _: [], "no-foo": true }
 ```
 
+### combine arrays
+
+* default: `false`
+* key: `combine-arrays`
+
+Should arrays be combined when provided by both command line arguments and
+a configuration file.
+
 ### duplicate arguments array
 
 * default: `true`
@@ -250,6 +258,25 @@ node example.js -x 1 2 -x 3 4
 { _: [], x: [[1, 2], [3, 4]] }
 ```
 
+### negation prefix
+
+* default: `no-`
+* key: `negation-prefix`
+
+The prefix to use for negated boolean variables.
+
+```sh
+node example.js --no-foo
+{ _: [], foo: false }
+```
+
+_if set to `quux`:_
+
+```sh
+node example.js --quuxfoo
+{ _: [], foo: false }
+```
+
 ### populate --
 
 * default: `false`.
@@ -269,6 +296,27 @@ _If enabled:_
 ```sh
 node example.js a -b -- x y
 { _: [ 'a' ], '--': [ 'x', 'y' ], b: true }
+```
+
+### set placeholder key
+
+* default: `false`.
+* key: `set-placeholder-key`.
+
+Should a placeholder be added for keys not set via the corresponding CLI argument?
+
+_If disabled:_
+
+```sh
+node example.js -a 1 -c 2
+{ _: [], a: 1, c: 2 }
+```
+
+_If enabled:_
+
+```sh
+node example.js -a 1 -c 2
+{ _: [], a: 1, b: undefined, c: 2 }
 ```
 
 ## Special Thanks

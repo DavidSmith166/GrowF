@@ -4,6 +4,6 @@ django-celery
 yahoo-fin
 pandas
 requests
-celery
 psycopg2
 django-webpack-loader
+django-background-tasks

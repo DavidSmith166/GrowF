@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var BundleTracker = require('webpack-bundle-tracker')
 var WriteFilePlugin = require('write-file-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -11,7 +12,8 @@ module.exports = {
   },
   plugins: [
     new BundleTracker({filename: 'webpack-stats.json'}),
-    new WriteFilePlugin()
+    new WriteFilePlugin(),
+    new UglifyJSPlugin()
     ],
   module: {
     rules: [
@@ -34,6 +36,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+        
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -64,16 +67,10 @@ module.exports = {
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
+  module.exports.plugins = ( module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
       }
     }),
     new webpack.LoaderOptionsPlugin({

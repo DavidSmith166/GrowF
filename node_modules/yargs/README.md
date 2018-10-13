@@ -1,4 +1,11 @@
-# Yargs
+<p align="center">
+  <img width="250" src="/yargs-logo.png">
+</p>
+<h1 align="center"> Yargs </h1>
+<p align="center">
+  <b >Yargs be a node.js library fer hearties tryin' ter parse optstrings</b>
+</p>
+<br>
 
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
@@ -6,13 +13,12 @@
 [![Windows Tests][windows-image]][windows-url]
 [![js-standard-style][standard-image]][standard-url]
 [![Conventional Commits][conventional-commits-image]][conventional-commits-url]
-[![Gitter][gitter-image]][gitter-url]
+[![Slack][slack-image]][slack-url]
 
-> Yargs be a node.js library fer hearties tryin' ter parse optstrings.
+## Description :
+Yargs helps you build interactive command line tools, by parsing arguments and generating an elegant user interface. 
 
-<img width="250" src="/yargs-logo.png">
-
-Yargs helps you build interactive command line tools, by parsing arguments and generating an elegant user interface. It gives you:
+It gives you:
 
 * commands and (grouped) options (`my-program.js serve --port=5000`).
 * a dynamically generated help menu based on your arguments.
@@ -24,11 +30,19 @@ Yargs helps you build interactive command line tools, by parsing arguments and g
 
 ## Installation
 
+Stable version:
 ```bash
 npm i yargs --save
 ```
 
-## Simple Example
+Bleeding edge version with the most recent features:
+```bash
+npm i yargs@next --save
+```
+
+## Usage :
+
+### Simple Example
 
 ````javascript
 #!/usr/bin/env node
@@ -49,16 +63,17 @@ $ ./plunder.js --ships 12 --distance 98.7
 Retreat from the xupptumblers!
 ```
 
-## Complex Example
+### Complex Example
 
-```js
+```javascript
 #!/usr/bin/env node
-const yargs = require('yargs') // eslint-disable-line
-  .command('serve', 'start the server', (yargs) => {
-    yargs.option('port', {
-      describe: 'port to bind on',
-      default: 5000
-    })    
+require('yargs') // eslint-disable-line
+  .command('serve [port]', 'start the server', (yargs) => {
+    yargs
+      .positional('port', {
+        describe: 'port to bind on',
+        default: 5000
+      })
   }, (argv) => {
     if (argv.verbose) console.info(`start server on :${argv.port}`)
     serve(argv.port)
@@ -67,11 +82,18 @@ const yargs = require('yargs') // eslint-disable-line
     alias: 'v',
     default: false
   })
-  .help()
   .argv
 ```
 
-## Table of Contents
+Run the example above with `--help` to see the help for the application.
+
+## Community :
+
+Having problems? want to contribute? join our [community slack](http://devtoolscommunity.herokuapp.com).
+
+## Documentation :
+
+### Table of Contents
 
 * [Yargs' API](/docs/api.md)
 * [Examples](/docs/examples.md)
@@ -99,5 +121,5 @@ const yargs = require('yargs') // eslint-disable-line
 [standard-url]: http://standardjs.com/
 [conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
 [conventional-commits-url]: https://conventionalcommits.org/
-[gitter-image]: https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000
-[gitter-url]: https://gitter.im/yargs/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link
+[slack-image]: http://devtoolscommunity.herokuapp.com/badge.svg
+[slack-url]: http://devtoolscommunity.herokuapp.com
