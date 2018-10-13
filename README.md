@@ -16,4 +16,6 @@ Run `python manage.py createsuperuser`
 
 
 ## Testing
-Run `python manage.py runserver:8000`
+Run `python manage.py runserver 8000`
+
+Navigate to localhost:8000 in browser
