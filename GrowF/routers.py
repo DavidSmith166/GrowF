@@ -1,5 +1,5 @@
 from rest_framework import routers
-from web.viewsets import StockViewSet
+from api.viewsets import StockViewSet
 
 router = routers.DefaultRouter()
 

@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'web',
+    'api',
     'rest_framework',
+    'background_task',
 ]
 
 MIDDLEWARE = [
@@ -76,10 +77,23 @@ WSGI_APPLICATION = 'GrowF.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# noinspection PyPackageRequirements
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+    }
+}
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
