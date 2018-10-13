@@ -4,4 +4,5 @@ yahoo-fin
 pandas
 requests
 psycopg2
+django-webpack-loader
 django-background-tasks
