@@ -8,7 +8,10 @@ def validate_portfolio_name(value):
 
 
 class Portfolio(models.Model):
-    name = models.CharField(max_length=70, validators=[validate_portfolio_name])
+    name = models.CharField(max_length=70, unique=True, validators=[validate_portfolio_name])
+
+    def __str__(self):
+        return self.name
 
 
 class Stock(models.Model):
