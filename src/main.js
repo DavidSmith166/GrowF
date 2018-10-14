@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Vue from 'vue'
 import App from './App'
-import store from './store'
 import router from './router'
 import $backend from './backend'
  
@@ -13,7 +12,6 @@ Vue.use(BootstrapVue);
 
 const vue = new Vue({
   router,
-  store,
   render: h => h(App)
 })
 

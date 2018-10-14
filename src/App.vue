@@ -60,6 +60,7 @@ import Portfolio from './components/Portfolio';
 import stockList from './components/stockList';
 import D3 from './components/d3';
 import moAvg from './components/moAvg';
+import axios from 'axios';
 
 export default{
   name: 'App',
@@ -77,7 +78,7 @@ export default{
   },
   methods: {
     getStock() {
-      const path = 'http://localhost:8001/api/stock';
+      const path = 'http://localhost:8000/api/stock';
       axios.get(path)
         .then((res) => {
           this.yourStock = res.data.yourStock;
@@ -88,7 +89,7 @@ export default{
         });
     },
     Mar1() {
-      const path = 'http://localhost:8001/yahoo';
+      const path = 'http://localhost:8000/yahoo';
       const payload = {
         function : 'get_fixed_stock_value_list',
         args : ['AAPL',30]
@@ -103,7 +104,7 @@ export default{
     });
     },
     Mar2() {
-      const path = 'http://localhost:8001/yahoo';
+      const path = 'http://localhost:8000/yahoo';
       const payload = {
         function : 'get_fixed_stock_value_list',
         args : ['AAPL',90]
@@ -118,7 +119,7 @@ export default{
     });
     },
     Mar3() {
-      const path = 'http://localhost:8001/yahoo';
+      const path = 'http://localhost:8000/yahoo';
       const payload = {
         function : 'get_fixed_stock_value_list',
         args : ['AAPL',365]
@@ -134,7 +135,7 @@ export default{
     }
   },
     created() {
-      this.getLoc();
+      this.getStock();
     },
 }
 </script>
