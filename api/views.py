@@ -73,11 +73,11 @@ def stock_detail(request, ticker):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-def yahoo(request, funct, args):
+def yahoo(request, function, args):
 
     data = {}
 
-    if funct == 'get_fixed_stock_value_list':
+    if function == 'get_fixed_stock_value_list':
         data['result'] = get_fixed_stock_value_list(*args)
 
     return JsonResponse(data)

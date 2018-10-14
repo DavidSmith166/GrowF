@@ -49,7 +49,7 @@
                 
       </div>
     </div>
-    <portfolio></portfolio>
+    <!--<portfolio></portfolio>-->
     <stocklist></stocklist>
   </div>
 </template>
@@ -70,7 +70,7 @@ export default{
     }
   },
   components: {
-    portfolio : Portfolio,
+    //portfolio : Portfolio,
     stocklist : stockList,
     d3 : D3,
     moavg : moAvg,
