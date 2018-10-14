@@ -30,7 +30,7 @@
           <tbody>
             <tr>
             <td>
-        <button type="button" class="btn btn-success btn-sm" @click = "Cur1()">>Past Month</button>
+        <button type="button" class="btn btn-success btn-sm" @click = "Cur1()">Past Month</button>
                 <button type="button" class="btn btn-dark btn-sm" @click = "Cur2()">Past Quarter</button>
                 <button type="button" class="btn btn-outline-danger btn-sm" @click = "Cur3()">Past Year</button>
             </td>
