@@ -72,13 +72,13 @@ def stock_detail(request, ticker):
         stock.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
-def yahoo(request, function, args):
+@api_view(['GET'])
+def yahoo(request):
 
     data = {}
 
-    if function == 'get_fixed_stock_value_list':
-        data['result'] = get_fixed_stock_value_list(*args)
+    if request.query_params.get('function') == 'get_fixed_stock_value_list':
+        data['result'] = get_fixed_stock_value_list(*request.query_params.get('args'))
 
     return JsonResponse(data)
 
