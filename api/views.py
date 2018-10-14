@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Stock
 from .serializers import *
+from api.yahoo import *
+from django.http import JsonResponse
 
 
 @api_view(['GET', 'POST'])
@@ -65,4 +67,14 @@ def stock_detail(request, ticker):
     elif request.method == 'DELETE':
         stock.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+def yahoo(request):
+
+    data = {}
+
+    if request['function'] == 'get_fixed_stock_value_list':
+        data['result'] = get_fixed_stock_value_list(*request['args'])
+
+    return JsonResponse(data)
 

@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^api/stocks/$', views.stock_list),
     url(r'^api/stocks/(?P<ticker>\w{1,4})$', views.stock_detail),
     url(r'^d3.html', TemplateView.as_view(template_name='./src/d3.html')),
+    url(r'^yahoo', views.yahoo)
 ]
 
 urlpatterns += staticfiles_urlpatterns()
