@@ -56,9 +56,8 @@ def add_missing_dates(list_in):
 #CALL THIS INSTEAD OF get_stock_value_list!!!
 def get_fixed_stock_value_list(ticker, num_days):
     warnings.simplefilter('ignore')
-    dict1 = add_missing_dates(get_stock_value_list(ticker, num_days))
-    list1 = dict1.values()
-    return list1
+    d = add_missing_dates(get_stock_value_list(ticker, num_days))
+    return d.values()
 
 
 def ticker_to_name(symbol):

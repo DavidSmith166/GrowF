@@ -4,6 +4,5 @@ db.sqlite3
 venv
 venv/*
 node_modules
-*.json
 *.DS_Store
 *.lock
