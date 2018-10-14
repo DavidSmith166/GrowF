@@ -31,7 +31,7 @@
             <tr>
             <td>
                 <button type="button" class="btn btn-success btn-sm"
-                STarked making monre from graduating >>Past Month</button>
+                STarked making monre from graduating >Past Month</button>
                 <button type="button" class="btn btn-dark btn-sm">Past Quarter</button>
                 <button type="button" class="btn btn-outline-danger btn-sm">Past Year</button>
             </td>
