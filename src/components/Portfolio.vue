@@ -15,7 +15,6 @@
     margin: left;
 }
 </style>
-*/-->
 
 <template>
 <div>
@@ -32,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr   v-for="stock in stocks" @click="selectStock(stock)">
+    <tr v-for="stock in stocks" @click="selectStock(stock)">
       <th></th>
       <th></th>
       <td></td>
@@ -47,32 +46,10 @@
   </tbody>
 </table>
 <div>
-<ul class="list-horizontal">
-  <li><button class="btn btn-primary" @click="getPreviousPage()">Previous</button></li>
-  <li v-for="page in pages">
-    <a class="btn btn-primary" @click="getPage(page.link)"></a>
-  </li>
-  <li><button class="btn btn-primary" @click="getNextPage()">Next</button></li>
-</ul>
 
 
 </div>
 
-<div class="card text-center" v-if="selectedStock">
-  <div class="card-header">
-    # -- 
-  </div>
-  <div class="card-block">
-    <h4 class="card-title"></h4>
-    <p class="card-text">
-
-    </p>
-    <a class="btn btn-primary" v-bind:href="'/stock-update/' + selectedStock.pk"> &#9998; </a>
-    <button class="btn btn-danger" @click="deleteStock(selectedStock)"> X</button>
-
-  </div>
-
-</div>
 </div>
 </template>
 
@@ -174,3 +151,4 @@ s = page.count;
   },
 }
 </script>
+*/-->

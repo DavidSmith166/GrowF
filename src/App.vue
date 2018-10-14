@@ -30,7 +30,7 @@
           <tbody>
             <tr>
             <td>
-        <button type="button" class="btn btn-success btn-sm" @click = "Cur1()">Past Month</button>
+        <button type="button" class="btn btn-success btn-sm" @click = "Cur1()">>Past Month</button>
                 <button type="button" class="btn btn-dark btn-sm" @click = "Cur2()">Past Quarter</button>
                 <button type="button" class="btn btn-outline-danger btn-sm" @click = "Cur3()">Past Year</button>
             </td>
@@ -49,14 +49,12 @@
                 
       </div>
     </div>
-    <portfolio></portfolio>
     <stocklist></stocklist>
   </div>
 </template>
 <!-- This script makes the thingy full size -->
 <script async src="//jsfiddle.net/k23jr7xb/embed/html,css,result/"></script>
 <script>  
-import Portfolio from './components/Portfolio';
 import stockList from './components/stockList';
 import D3 from './components/d3';
 import moAvg from './components/moAvg';
@@ -71,7 +69,6 @@ export default{
     }
   },
   components: {
-    portfolio : Portfolio,
     stocklist : stockList,
     d3 : D3,
     moavg : moAvg,
@@ -168,6 +165,7 @@ li {
 a {
     color: #42b983;
 }
+
 #Graphs{
   display: inline-block;
  
