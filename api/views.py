@@ -7,6 +7,7 @@ from .serializers import *
 from api.yahoo import *
 from django.http import JsonResponse
 import re
+from rest_framework.views import APIView
 
 
 @api_view(['GET', 'POST'])
@@ -77,8 +78,7 @@ def yahoo(request):
 
     data = {}
 
-    if request.query_params.get('function') == 'get_fixed_stock_value_list':
-        data['result'] = get_fixed_stock_value_list(*request.query_params.get('args'))
-
+    #if request.query_params.get('function') == 'get_fixed_stock_value_list':
+    data['result'] = get_fixed_stock_value_list('VOO', 30)
     return JsonResponse(data)
 

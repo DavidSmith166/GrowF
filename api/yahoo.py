@@ -1,5 +1,5 @@
 import datetime
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 import warnings
 from yahoo_fin.stock_info import *
 from yahoo_fin import stock_info
@@ -12,7 +12,7 @@ def get_current_stock_value(ticker):
 
 
 def get_past_date(days_from_current):
-    past = datetime.timedelta(days = days_from_current)
+    past = timedelta(days = days_from_current)
     return str(date.today() - past)
 
 
@@ -48,7 +48,7 @@ def add_missing_dates(list_in):
             date(int(list_keys[i][0:4]), int(list_keys[i][5:7]), int(list_keys[i][8:10]))).days
             for j in range(diff):
                 extra_list[str(date(int(list_keys[i][0:4]), int(list_keys[i][5:7]), int(list_keys[i][8:10]))
-                           + datetime.timedelta(days = j))] = list_in[list_keys[i]]
+                           + timedelta(days = j))] = list_in[list_keys[i]]
 
     return {**list_in, **extra_list}
 
@@ -57,7 +57,8 @@ def add_missing_dates(list_in):
 def get_fixed_stock_value_list(ticker, num_days):
     warnings.simplefilter('ignore')
     d = add_missing_dates(get_stock_value_list(ticker, num_days))
-    result = d.values()
+    result = tuple(d.values())
+    print(result)
     return result
 
 
