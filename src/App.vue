@@ -49,10 +49,7 @@
                 
       </div>
     </div>
-<<<<<<< HEAD
-=======
     <!--<portfolio></portfolio>-->
->>>>>>> a3a638dcba37dae1c5c1f0bcd3e7b5bd9eec13fa
     <stocklist></stocklist>
   </div>
 </template>
@@ -73,10 +70,7 @@ export default{
     }
   },
   components: {
-<<<<<<< HEAD
-=======
     //portfolio : Portfolio,
->>>>>>> a3a638dcba37dae1c5c1f0bcd3e7b5bd9eec13fa
     stocklist : stockList,
     d3 : D3,
     moavg : moAvg,
