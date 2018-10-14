@@ -11,14 +11,14 @@
           <tbody>
             <tr>
             <td>
-                <button type="button" class="btn btn-success btn-sm" @onclick = "7" >Past Month</button>
-                <button type="button" class="btn btn-dark btn-sm" @onclick = "7" >Past Quarter</button>
-                <button type="button" class="btn btn-outline-danger btn-sm" @onclick = "7" >Past Year</button>
+                <button type="button" class="btn btn-success btn-sm" @click = "Mar1()" >Past Month</button>
+                <button type="button" class="btn btn-dark btn-sm" @click = "Mar2()" >Past Quarter</button>
+                <button type="button" class="btn btn-outline-danger btn-sm" @click = "Mar3()" >Past Year</button>
             </td>
             </tr>
             <tr>
             <td>
-              <d3></d3>
+              <d3 :result="result"></d3>
             </td>
             </tr>
           </tbody>
@@ -30,10 +30,9 @@
           <tbody>
             <tr>
             <td>
-                <button type="button" class="btn btn-success btn-sm"
-                STarked making monre from graduating >>Past Month</button>
-                <button type="button" class="btn btn-dark btn-sm">Past Quarter</button>
-                <button type="button" class="btn btn-outline-danger btn-sm">Past Year</button>
+                <button type="button" class="btn btn-success btn-sm" @click = "Cur1()">>Past Month</button>
+                <button type="button" class="btn btn-dark btn-sm" @click = "Cur2()">Past Quarter</button>
+                <button type="button" class="btn btn-outline-danger btn-sm" @click = "Cur3()">Past Year</button>
             </td>
             </tr>
             <tr>
@@ -66,6 +65,8 @@ export default{
   name: 'App',
   data () {
     return {
+      yourStock: [],
+      result : [],
     }
   },
   components: {
@@ -74,8 +75,69 @@ export default{
     d3 : D3,
     moavg : moAvg,
   },
-};
- </script>
+  methods: {
+    getStock() {
+      const path = 'http://localhost:8001/api/stock';
+      axios.get(path)
+        .then((res) => {
+          this.yourStock = res.data.yourStock;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+        });
+    },
+    Mar1() {
+      const path = 'http://localhost:8001/yahoo';
+      const payload = {
+        function : 'get_fixed_stock_value_list',
+        args : ['AAPL',30]
+      }
+      axios.get(path,payload)
+        .then((res) => {
+          this.result = res.data.result;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+    });
+    },
+    Mar2() {
+      const path = 'http://localhost:8001/yahoo';
+      const payload = {
+        function : 'get_fixed_stock_value_list',
+        args : ['AAPL',90]
+      }      
+      axios.get(path,payload)
+        .then((res) => {
+          this.result = res.data.result;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+    });
+    },
+    Mar3() {
+      const path = 'http://localhost:8001/yahoo';
+      const payload = {
+        function : 'get_fixed_stock_value_list',
+        args : ['AAPL',365]
+      }
+      axios.get(path,payload)
+        .then((res) => {
+          this.result = res.data.result;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+    });
+    }
+  },
+    created() {
+      this.getLoc();
+    },
+}
+</script>
 
 <style>
 #app {
