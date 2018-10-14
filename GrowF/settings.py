@@ -16,13 +16,13 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start development settings - unsuitable for stockion
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in stockion secret!
 SECRET_KEY = 'eeb#h++9oi!a4#3)#=@%)*dr%jr3w4jt*_ah=cq=-j7p#5ka-#'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in stockion!
 DEBUG = True
 
 ALLOWED_HOSTS = []

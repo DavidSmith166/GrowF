@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from .yahoo import get_current_stock_value
+from .yahoo import get_current_stock_value, ticker_to_name
 
 
 def validate_portfolio_name(value):
@@ -20,6 +20,10 @@ class Portfolio(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def stocks(self):
+        return list(Stock.objects.all().filter(portfolios=self)[:10])
+
 
 class Stock(models.Model):
     ticker = models.CharField(max_length=4, unique=True, validators=[validate_ticker])
@@ -30,7 +34,11 @@ class Stock(models.Model):
 
     @property
     def name(self):
-        return 'TODO IMPLEMENT NAME'
+        return ticker_to_name(self.ticker.upper())
+
+    @property
+    def stock_prices(self):
+        return list(StockPrice.objects.all().filter(stock=self)[:10])
 
 
 class Closing(models.Model):
