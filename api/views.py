@@ -5,7 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Stock
 from .serializers import *
 
-# Create your views here.
+
 @api_view(['GET', 'POST'])
 def stock_list(request):
     """
@@ -39,6 +39,7 @@ def stock_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def stock_detail(request, ticker):
