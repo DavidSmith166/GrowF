@@ -1,1 +1,1 @@
-{"status":"done","chunks":{"main":[{"name":"bundle.js","path":"C:\\Users\\darkk\\PycharmProjects\\GrowF\\dist\\bundle.js"}]}}
+{"status":"error","error":"ModuleNotFoundError","message":"Module not found: Error: Can't resolve '../http/APIService' in 'C:\\Users\\darkk\\PycharmProjects\\GrowF\\src\\components'"}

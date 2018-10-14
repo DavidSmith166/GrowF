@@ -6,6 +6,7 @@ from .models import Stock
 from .serializers import *
 from api.yahoo import *
 from django.http import JsonResponse
+import re
 
 
 @api_view(['GET', 'POST'])
@@ -49,12 +50,15 @@ def stock_detail(request, ticker):
     Retrieve, update or delete a product instance.
     """
     try:
-        stock = Stock.objects.get(ticker=ticker)
+        if re.compile(r'\w{1,4}').search(str(ticker)):
+            stock = Stock.objects.get(ticker=ticker)
+        else:
+            stock = Stock.objects.get(pk=ticker)
     except Stock.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = StockSerializer(stock,context={'request': request})
+        serializer = StockSerializer(stock, context={'request': request})
         return Response(serializer.data)
 
     elif request.method == 'PUT':
@@ -69,12 +73,12 @@ def stock_detail(request, ticker):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-def yahoo(request):
+def yahoo(request, funct, args):
 
     data = {}
 
-    if request['function'] == 'get_fixed_stock_value_list':
-        data['result'] = get_fixed_stock_value_list(*request['args'])
+    if funct == 'get_fixed_stock_value_list':
+        data['result'] = get_fixed_stock_value_list(*args)
 
     return JsonResponse(data)
 
