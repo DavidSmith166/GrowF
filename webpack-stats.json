@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"status":"done","chunks":{"main":[{"name":"bundle.js","path":"/Users/kjiang2000/GrowF/dist/bundle.js"}]}}
+=======
+{"status":"error","error":"ModuleNotFoundError","message":"Module not found: Error: Can't resolve './components/Portfolio' in 'C:\\Users\\darkk\\PycharmProjects\\GrowF\\src'"}
+>>>>>>> a3a638dcba37dae1c5c1f0bcd3e7b5bd9eec13fa
