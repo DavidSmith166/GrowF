@@ -1,4 +1,4 @@
-/*<template>
+<!--<template>
     <div id ="dropdown">
         <b-dropdown id="ddown-buttons" text="Portfolios" class="m-2">
         <b-dropdown-item-button>Portfolio 1</b-dropdown-item-button>
@@ -15,10 +15,7 @@
     margin: left;
 }
 </style>
-*/
-
-
-
+*/-->
 
 <template>
 <div>
