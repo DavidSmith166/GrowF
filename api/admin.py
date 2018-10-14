@@ -3,7 +3,7 @@ from .models import Stock, Closing, Portfolio, StockPrice
 # Register your models here.
 @admin.register(Stock)
 class StockAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ['name']
 
 
 @admin.register(Closing)

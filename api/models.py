@@ -1,10 +1,17 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from .yahoo import get_current_stock_value
 
 
 def validate_portfolio_name(value):
     if not len(value) <= 70:
         raise ValidationError('Portfolio name too long, must be less than 70 characters')
+
+def validate_ticker(value):
+    try:
+        get_current_stock_value(value)
+    except ValueError as e:
+        raise ValidationError('Ticker does not exist')
 
 
 class Portfolio(models.Model):
@@ -15,11 +22,15 @@ class Portfolio(models.Model):
 
 
 class Stock(models.Model):
-    ticker = models.CharField(max_length=4, unique=True)
+    ticker = models.CharField(max_length=4, unique=True, validators=[validate_ticker])
     portfolios = models.ManyToManyField(Portfolio, blank=True)
 
     def __str__(self):
-        return self.ticker
+        return self.ticker + ' : ' + self.name
+
+    @property
+    def name(self):
+        return 'TODO IMPLEMENT NAME'
 
 
 class Closing(models.Model):

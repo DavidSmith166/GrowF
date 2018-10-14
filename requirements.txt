@@ -1,8 +1,10 @@
 django
 djangorestframework==3.8.2
 yahoo-fin
+yahoo-finance
 pandas
 requests
 psycopg2
 django-webpack-loader
 django-background-tasks
+
