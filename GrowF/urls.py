@@ -21,6 +21,7 @@ from django.views.generic import TemplateView
 from api import views
 
 urlpatterns = [
+    url(r'^admin/', admin.site.urls),
     url(r'^$', 
         TemplateView.as_view(template_name='index.html'),      
         name='uHome'
@@ -29,6 +30,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api/stocks/$', views.stock_list),
     url(r'^api/stocks/(?P<ticker>\w{1,4})$', views.stock_detail),
+    url(r'^d3.html', TemplateView.as_view(template_name='./src/d3.html')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

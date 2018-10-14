@@ -4,8 +4,8 @@ import App from './App'
 
 Vue.use(Router)
 
-export default new Router({
-  routes: [
+export default new Router({  
+    routes: [
     {
       path: '/',
       name: 'App',
