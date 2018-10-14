@@ -19,6 +19,7 @@ export default {
     props: ['result'],
     data() {
         return {
+            result : [],
             line: '',
         };
     },

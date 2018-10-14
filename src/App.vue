@@ -30,7 +30,7 @@
           <tbody>
             <tr>
             <td>
-        <button type="button" class="btn btn-success btn-sm" @click = "Cur1()">Past Month</button>
+        <button type="button" class="btn btn-success btn-sm" @click = "Cur1()">>Past Month</button>
                 <button type="button" class="btn btn-dark btn-sm" @click = "Cur2()">Past Quarter</button>
                 <button type="button" class="btn btn-outline-danger btn-sm" @click = "Cur3()">Past Year</button>
             </td>
@@ -56,10 +56,10 @@
 <!-- This script makes the thingy full size -->
 <script async src="//jsfiddle.net/k23jr7xb/embed/html,css,result/"></script>
 <script>  
-import Portfolio from './components/Portfolio';
 import stockList from './components/stockList';
 import D3 from './components/d3';
 import moAvg from './components/moAvg';
+import axios from 'axios';
 
 export default{
   name: 'App',
@@ -77,7 +77,7 @@ export default{
   },
   methods: {
     getStock() {
-      const path = 'http://localhost:8001/api/stock';
+      const path = 'http://localhost:8000/api/stock';
       axios.get(path)
         .then((res) => {
           this.yourStock = res.data.yourStock;
@@ -88,7 +88,7 @@ export default{
         });
     },
     Mar1() {
-      const path = 'http://localhost:8001/yahoo';
+      const path = 'http://localhost:8000/yahoo';
       const payload = {
         function : 'get_fixed_stock_value_list',
         args : ['AAPL',30]
@@ -103,7 +103,7 @@ export default{
     });
     },
     Mar2() {
-      const path = 'http://localhost:8001/yahoo';
+      const path = 'http://localhost:8000/yahoo';
       const payload = {
         function : 'get_fixed_stock_value_list',
         args : ['AAPL',90]
@@ -118,7 +118,7 @@ export default{
     });
     },
     Mar3() {
-      const path = 'http://localhost:8001/yahoo';
+      const path = 'http://localhost:8000/yahoo';
       const payload = {
         function : 'get_fixed_stock_value_list',
         args : ['AAPL',365]
@@ -134,7 +134,7 @@ export default{
     }
   },
     created() {
-      this.getLoc();
+      this.getStock();
     },
 }
 </script>
@@ -167,6 +167,7 @@ li {
 a {
     color: #42b983;
 }
+
 #Graphs{
   display: inline-block;
  
