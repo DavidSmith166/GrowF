@@ -1,10 +1,9 @@
 .idea
 db.sqlite3
 *.pyc
-venv
-venv/*
+venv/
 node_modules
-*.DS_Store
-*.lock
-*lock.json
+*.DS_Store*
+*.lock*
+*.json*
 \!package!.json
