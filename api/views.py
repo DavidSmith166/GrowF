@@ -79,6 +79,6 @@ def yahoo(request):
     data = {}
 
     #if request.query_params.get('function') == 'get_fixed_stock_value_list':
-    data['result'] = get_fixed_stock_value_list('VOO', 30)
+    data['result'] = get_fixed_stock_value_list('TSLA', 30)
     return JsonResponse(data)
 

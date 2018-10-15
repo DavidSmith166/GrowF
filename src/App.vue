@@ -3,6 +3,7 @@
     <head>
       <script src="https://d3js.org/d3.v4.min.js"></script>
     </head>
+    <p> {{ result  }}</p>
     <h1>GrowF</h1>
     <div id = "Graphs">
       <div id = "Marquee">
@@ -18,7 +19,7 @@
             </tr>
             <tr>
             <td>
-              <d3 :result="result"></d3>
+              <d3 :result=result></d3>
             </td>
             </tr>
           </tbody>
