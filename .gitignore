@@ -6,4 +6,4 @@ node_modules
 *.DS_Store*
 *.lock*
 *.json*
-\!package!.json
+!package.json
